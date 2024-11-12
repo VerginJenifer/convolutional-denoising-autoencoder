@@ -83,7 +83,14 @@ autoencoder.fit(x_train_noisy, x_train_scaled,
                 batch_size=128,
                 shuffle=True,
                 validation_data=(x_test_noisy, x_test_scaled))
-
+plt.figure(figsize=(10, 5))
+plt.plot(history.history['loss'], label='Training Loss')
+plt.plot(history.history['val_loss'], label='Validation Loss')
+plt.title('Training and Validation Loss')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.legend()
+plt.show()
 decoded_imgs = autoencoder.predict(x_test_noisy)
 history=autoencoder.fit(x_train_noisy, x_train_scaled,
                 epochs=2,
@@ -121,7 +128,7 @@ plt.show()
 
 ### Training Loss, Validation Loss Vs Iteration Plot
 
-Include your plot here
+![image](https://github.com/user-attachments/assets/0330606b-8d25-41cc-a6b9-a20eefb9fe55)
 
 ### Original vs Noisy Vs Reconstructed Image
 ![image](https://github.com/user-attachments/assets/80e4e189-3532-417f-886c-91341ed116c2)
